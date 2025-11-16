@@ -4,6 +4,7 @@ import { menuItems } from '../data/menu';
 import { galleryImages } from '../data/gallery';
 import ProductGrid from '../components/ProductGrid';
 import CTABlock from '../components/CTABlock';
+import LazyImage from '../components/LazyImage';
 
 const Home = () => {
   const featuredItems = menuItems.slice(0, 6);
@@ -194,7 +195,7 @@ const Home = () => {
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
           >
-            {featuredImages.map((image, index) => (
+            {featuredImages.map((image) => (
               <motion.div
                 key={image.id}
                 className="relative aspect-square overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer"
@@ -202,10 +203,10 @@ const Home = () => {
                 whileHover={{ scale: 1.05, zIndex: 10 }}
                 transition={{ duration: 0.3 }}
               >
-                <img
+                <LazyImage
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white">

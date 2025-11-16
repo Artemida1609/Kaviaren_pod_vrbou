@@ -21,29 +21,20 @@ Modern, responsive website for Kaviareň pod Vŕbou café in Bratislava, Slovaki
 npm install
 ```
 
-2. Copy images to public folder:
-```bash
-# Windows (PowerShell)
-Copy-Item -Path "..\photos\*" -Destination "public\coffee_shops\kaviaren_pod_vrbou\photos\" -Recurse
-
-# Linux/Mac
-cp -r ../photos/* public/coffee_shops/kaviaren_pod_vrbou/photos/
-
-# Or use the script:
-npm run copy-images
-```
-
-3. Start development server:
+2. Start development server:
+   - **Images are automatically copied** from `../photos/` to `public/coffee_shops/kaviaren_pod_vrbou/photos/` before starting the dev server
+   - No need to run `copy-images` manually!
 ```bash
 npm run dev
 ```
 
-4. Build for production:
+3. Build for production:
+   - **Images are automatically copied** before building
 ```bash
 npm run build
 ```
 
-5. Preview production build:
+4. Preview production build:
 ```bash
 npm run preview
 ```

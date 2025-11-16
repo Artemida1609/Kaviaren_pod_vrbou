@@ -12,6 +12,7 @@ function copyRecursive(src, dest) {
   try {
     mkdirSync(dest, { recursive: true });
     const entries = readdirSync(src);
+    let copiedCount = 0;
 
     for (const entry of entries) {
       const srcPath = join(src, entry);
@@ -19,19 +20,30 @@ function copyRecursive(src, dest) {
       const stat = statSync(srcPath);
 
       if (stat.isDirectory()) {
-        copyRecursive(srcPath, destPath);
+        const subCopied = copyRecursive(srcPath, destPath);
+        copiedCount += subCopied;
       } else {
         copyFileSync(srcPath, destPath);
-        console.log(`Copied: ${entry}`);
+        copiedCount++;
       }
     }
+    return copiedCount;
   } catch (error) {
     console.error('Error copying images:', error.message);
     process.exit(1);
   }
 }
 
-console.log('Copying images...');
-copyRecursive(sourceDir, destDir);
-console.log('Images copied successfully!');
+try {
+  const count = copyRecursive(sourceDir, destDir);
+  if (count > 0) {
+    console.log(`✓ Copied ${count} image(s) to public folder`);
+  }
+} catch (error) {
+  // If source directory doesn't exist, that's okay - images might already be in public
+  if (error.code !== 'ENOENT') {
+    console.error('Error copying images:', error.message);
+    process.exit(1);
+  }
+}
 

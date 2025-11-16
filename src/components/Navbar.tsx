@@ -42,6 +42,8 @@ const Navbar = () => {
               src="/coffee_shops/kaviaren_pod_vrbou/photos/logo.png" 
               alt="Kaviareň pod Vŕbou" 
               className="h-10 w-10 object-contain"
+              loading="eager"
+              fetchPriority="high"
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ duration: 0.3 }}
             />
