@@ -39,7 +39,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <motion.img 
-              src="/coffee_shops/kaviaren_pod_vrbou/photos/logo.png" 
+              src="/photos/logo.png" 
               alt="Kaviareň pod Vŕbou" 
               className="h-10 w-10 object-contain"
               loading="eager"

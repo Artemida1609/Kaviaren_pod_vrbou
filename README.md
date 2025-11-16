@@ -22,8 +22,9 @@ npm install
 ```
 
 2. Start development server:
-   - **Images are automatically copied** from `../photos/` to `public/coffee_shops/kaviaren_pod_vrbou/photos/` before starting the dev server
+   - **Images are automatically copied** from `../photos/` to `public/photos/` before starting the dev server
    - No need to run `copy-images` manually!
+   - All images are accessible via `/photos/filename.png`
 ```bash
 npm run dev
 ```
@@ -43,9 +44,7 @@ npm run preview
 
 ```
 ├── public/
-│   └── coffee_shops/
-│       └── kaviaren_pod_vrbou/
-│           └── photos/          # Café images
+│   └── photos/                  # Café images (logo + gallery photos)
 ├── src/
 │   ├── components/              # Reusable UI components
 │   ├── pages/                   # Page components

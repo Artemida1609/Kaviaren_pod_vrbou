@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const sourceDir = join(__dirname, '../../photos');
-const destDir = join(__dirname, '../public/coffee_shops/kaviaren_pod_vrbou/photos');
+const destDir = join(__dirname, '../public/photos');
 
 function copyRecursive(src, dest) {
   try {

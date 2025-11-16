@@ -47,7 +47,7 @@ TypeScript type definitions:
 
 Static assets served from the root:
 
-- **coffee_shops/kaviaren_pod_vrbou/photos/** - Café images (logo, interior photos)
+- **photos/** - Café images (logo, interior photos) - accessible via `/photos/filename.png`
 
 ## Component Architecture
 
