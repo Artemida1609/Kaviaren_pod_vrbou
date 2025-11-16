@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename)
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/Kaviaren_pod_vrbou/', // GitHub Pages base path
   plugins: [react()],
   resolve: {
     alias: {

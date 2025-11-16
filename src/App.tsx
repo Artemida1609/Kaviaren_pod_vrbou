@@ -2,6 +2,9 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
+// GitHub Pages base path
+const basename = import.meta.env.BASE_URL || '/Kaviaren_pod_vrbou/';
+
 // Code splitting - lazy load pages
 const Home = lazy(() => import('./pages/Home'));
 const Menu = lazy(() => import('./pages/Menu'));
@@ -18,7 +21,7 @@ const PageLoader = () => (
 
 function App() {
   return (
-    <Router>
+    <Router basename={basename}>
       <Layout>
         <Suspense fallback={<PageLoader />}>
           <Routes>
