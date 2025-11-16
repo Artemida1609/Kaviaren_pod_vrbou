@@ -11,7 +11,8 @@ const Gallery = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -23,6 +24,7 @@ const Gallery = () => {
       scale: 1,
       transition: {
         duration: 0.5,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -35,7 +37,11 @@ const Gallery = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-espresso-900 mb-4">
             Galéria
@@ -59,7 +65,14 @@ const Gallery = () => {
               className="relative aspect-square overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all cursor-pointer group"
               variants={itemVariants}
               whileHover={{ scale: 1.05, zIndex: 10 }}
-              transition={{ duration: 0.3 }}
+              transition={{ 
+                duration: 0.3,
+                ease: [0.16, 1, 0.3, 1],
+                type: "spring",
+                stiffness: 400,
+                damping: 25
+              }}
+              style={{ willChange: 'transform' }}
               onClick={() => setSelectedImage(image.src)}
             >
               <LazyImage

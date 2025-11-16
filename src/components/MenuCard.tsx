@@ -12,9 +12,14 @@ const MenuCard = ({ item, index = 0 }: MenuCardProps) => {
       className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border border-latte-200"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true, amount: 0.3, margin: "-50px" }}
+      transition={{ 
+        duration: 0.5, 
+        delay: index * 0.1,
+        ease: [0.16, 1, 0.3, 1]
+      }}
       whileHover={{ scale: 1.03, y: -5 }}
+      style={{ willChange: 'transform, opacity' }}
     >
       {item.image && (
         <div className="h-48 overflow-hidden relative">

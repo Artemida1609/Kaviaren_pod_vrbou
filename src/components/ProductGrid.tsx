@@ -30,16 +30,18 @@ const ProductGrid = ({ items, category }: ProductGridProps) => {
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2, margin: "-100px" }}
       variants={{
         hidden: { opacity: 0 },
         visible: {
           opacity: 1,
           transition: {
-            staggerChildren: 0.1,
+            staggerChildren: 0.08,
+            ease: [0.16, 1, 0.3, 1],
           },
         },
       }}
+      style={{ willChange: 'opacity' }}
     >
       {filteredItems.map((item, index) => (
         <MenuCard key={item.id} item={item} index={index} />

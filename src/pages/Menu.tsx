@@ -25,7 +25,11 @@ const Menu = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-espresso-900 mb-4">
             Naša ponuka
@@ -54,9 +58,17 @@ const Menu = () => {
               }`}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1, duration: 0.3 }}
+              transition={{ 
+                delay: index * 0.1, 
+                duration: 0.3,
+                ease: [0.16, 1, 0.3, 1],
+                type: "spring",
+                stiffness: 400,
+                damping: 25
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              style={{ willChange: 'transform' }}
             >
               <span className="mr-2 text-xl">{category.icon}</span>
               {category.label}
@@ -64,7 +76,13 @@ const Menu = () => {
                 <motion.div
                   className="absolute inset-0 rounded-xl border-2 border-crema-400"
                   layoutId="activeCategory"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 400, 
+                    damping: 30,
+                    mass: 0.5
+                  }}
+                  style={{ willChange: 'transform' }}
                 />
               )}
             </motion.button>
@@ -78,7 +96,11 @@ const Menu = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            transition={{ 
+              duration: 0.3,
+              ease: [0.16, 1, 0.3, 1]
+            }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <ProductGrid items={filteredItems} category={selectedCategory} />
           </motion.div>

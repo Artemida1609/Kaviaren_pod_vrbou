@@ -15,8 +15,9 @@ const Home = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
         delayChildren: 0.1,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -28,7 +29,7 @@ const Home = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -110,7 +111,14 @@ const Home = () => {
                 className="text-center group"
                 variants={itemVariants}
                 whileHover={{ scale: 1.05, y: -10 }}
-                transition={{ duration: 0.3 }}
+                transition={{ 
+                  duration: 0.3,
+                  ease: [0.16, 1, 0.3, 1],
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 25
+                }}
+                style={{ willChange: 'transform' }}
               >
                 <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-latte-200">
                   <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
@@ -136,8 +144,12 @@ const Home = () => {
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ 
+              duration: 0.6,
+              ease: [0.16, 1, 0.3, 1]
+            }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <h2 className="text-5xl font-serif font-bold text-espresso-900 mb-4">
               Naše špeciality
@@ -177,8 +189,12 @@ const Home = () => {
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ 
+              duration: 0.6,
+              ease: [0.16, 1, 0.3, 1]
+            }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <h2 className="text-5xl font-serif font-bold text-espresso-900 mb-4">
               Náš priestor
@@ -201,7 +217,14 @@ const Home = () => {
                 className="relative aspect-square overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer"
                 variants={itemVariants}
                 whileHover={{ scale: 1.05, zIndex: 10 }}
-                transition={{ duration: 0.3 }}
+                transition={{ 
+                  duration: 0.3,
+                  ease: [0.16, 1, 0.3, 1],
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 25
+                }}
+                style={{ willChange: 'transform' }}
               >
                 <LazyImage
                   src={image.src}

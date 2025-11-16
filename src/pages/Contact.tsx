@@ -42,7 +42,11 @@ const Contact = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-espresso-900 mb-4">
             Kontakt
@@ -58,7 +62,11 @@ const Contact = () => {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          style={{ willChange: 'transform, opacity' }}
           >
             <div className="bg-gradient-to-br from-white to-latte-50 rounded-2xl shadow-xl p-8 mb-8 border border-latte-200">
               <h2 className="text-3xl font-serif font-bold text-espresso-900 mb-8">
@@ -77,7 +85,12 @@ const Contact = () => {
                     className="flex items-start group"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                    transition={{ 
+                      delay: index * 0.1, 
+                      duration: 0.4,
+                      ease: [0.16, 1, 0.3, 1]
+                    }}
+                    style={{ willChange: 'transform, opacity' }}
                   >
                     <div className="w-12 h-12 rounded-lg bg-crema-100 flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-crema-200 transition-colors">
                       <svg className="w-6 h-6 text-crema-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,7 +168,11 @@ const Contact = () => {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          style={{ willChange: 'transform, opacity' }}
           >
             <div className="bg-gradient-to-br from-white to-latte-50 rounded-2xl shadow-xl p-8 border border-latte-200">
               <h2 className="text-3xl font-serif font-bold text-espresso-900 mb-8">

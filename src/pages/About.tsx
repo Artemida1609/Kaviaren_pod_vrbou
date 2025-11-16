@@ -8,7 +8,8 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -20,6 +21,7 @@ const About = () => {
       y: 0,
       transition: {
         duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -60,7 +62,11 @@ const About = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <div className="bg-gradient-to-br from-latte-50 to-white rounded-2xl p-8 md:p-12 shadow-xl border border-latte-200">
             <div className="whitespace-pre-line text-espresso-700 leading-relaxed text-lg md:text-xl">
@@ -78,7 +84,11 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          style={{ willChange: 'transform, opacity' }}
           >
             Naše hodnoty
           </motion.h2>
@@ -100,7 +110,14 @@ const About = () => {
                 className="bg-white rounded-2xl shadow-lg p-8 text-center group hover:shadow-2xl transition-all duration-300 border border-latte-200"
                 variants={itemVariants}
                 whileHover={{ scale: 1.05, y: -10 }}
-                transition={{ duration: 0.3 }}
+                transition={{ 
+                  duration: 0.3,
+                  ease: [0.16, 1, 0.3, 1],
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 25
+                }}
+                style={{ willChange: 'transform' }}
               >
                 <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                   {value.icon}
@@ -124,7 +141,11 @@ const About = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-center text-espresso-900 mb-4">
             Otváracie hodiny
@@ -139,7 +160,12 @@ const About = () => {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
+                  transition={{ 
+                    delay: index * 0.1, 
+                    duration: 0.4,
+                    ease: [0.16, 1, 0.3, 1]
+                  }}
+                  style={{ willChange: 'transform, opacity' }}
                 >
                   <span className="text-lg font-semibold text-espresso-800">{day}</span>
                   <span className="text-lg text-espresso-600 font-medium">{hours}</span>
@@ -161,7 +187,11 @@ const About = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
             Navštívte nás

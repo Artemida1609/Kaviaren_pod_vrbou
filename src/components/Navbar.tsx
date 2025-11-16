@@ -8,10 +8,17 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -32,7 +39,11 @@ const Navbar = () => {
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ 
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1] // Custom easing for smoother animation
+      }}
+      style={{ willChange: 'transform' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -45,7 +56,14 @@ const Navbar = () => {
               loading="eager"
               fetchPriority="high"
               whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ duration: 0.3 }}
+              transition={{ 
+                duration: 0.3,
+                ease: [0.16, 1, 0.3, 1],
+                type: "spring",
+                stiffness: 400,
+                damping: 25
+              }}
+              style={{ willChange: 'transform' }}
             />
             <span className="text-xl font-serif font-bold text-espresso-800 group-hover:text-crema-700 transition-colors">
               Kaviareň pod Vŕbou
@@ -69,7 +87,13 @@ const Navbar = () => {
                   <motion.div
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-crema-500 rounded-full"
                     layoutId="activeTab"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 400, 
+                      damping: 30,
+                      mass: 0.5
+                    }}
+                    style={{ willChange: 'transform' }}
                   />
                 )}
               </Link>
@@ -109,7 +133,11 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ 
+              duration: 0.3,
+              ease: [0.16, 1, 0.3, 1]
+            }}
+            style={{ willChange: 'height, opacity' }}
           >
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
               {navLinks.map((link, index) => (
@@ -117,7 +145,12 @@ const Navbar = () => {
                   key={link.path}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ 
+                    delay: index * 0.1,
+                    duration: 0.3,
+                    ease: [0.16, 1, 0.3, 1]
+                  }}
+                  style={{ willChange: 'transform, opacity' }}
                 >
                   <Link
                     to={link.path}
